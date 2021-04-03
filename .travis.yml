@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+
+before_install:
+  - docker build -t eli_if/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run eli_if/docker-react yarn test -- --coverage
